@@ -11,13 +11,19 @@ namespace LD41.BeatEmUp {
 #if UNITY_EDITOR
 			manager.mapBounds.DebugDraw();
 #endif
+
+			if (Input.GetButtonDown("Fire1")) {
+				melee.Hit();
+			}
 		}
 
 		protected new void FixedUpdate() {
-			velocity = new Vector2(inputDelta.x, inputDelta.y);
-			velocity.Normalize();
-			velocity *= speed;
-			manager.mapBounds.KeepVelocityInBounds(transform.position, ref velocity, Time.fixedDeltaTime);
+			if (!isStunned) {
+				velocity = new Vector2(inputDelta.x, inputDelta.y);
+				velocity.Normalize();
+				velocity *= speed;
+				manager.mapBounds.KeepVelocityInBounds(transform.position, ref velocity, Time.fixedDeltaTime);
+			}
 			base.FixedUpdate();
 		}
 
