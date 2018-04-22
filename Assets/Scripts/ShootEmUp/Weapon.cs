@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace LD41 {
+namespace LD41.ShootEmUp {
 	public class Weapon : MonoBehaviour {
 
 		protected List<ProjectileLauncher> launchers = new List<ProjectileLauncher>();

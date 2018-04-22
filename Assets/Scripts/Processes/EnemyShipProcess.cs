@@ -1,4 +1,5 @@
-﻿using Xenon;
+﻿using LD41.ShootEmUp;
+using Xenon;
 
 namespace LD41.Processes {
 	public abstract class EnemyShipProcess : Process {

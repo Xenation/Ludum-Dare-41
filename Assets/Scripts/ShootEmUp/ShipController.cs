@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LD41 {
+namespace LD41.ShootEmUp {
 	public class ShipController : Ship {
 		
 		private Vector2 inputDelta;

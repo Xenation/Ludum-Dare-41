@@ -2,7 +2,7 @@
 using UnityEngine;
 using Xenon;
 
-namespace LD41 {
+namespace LD41.ShootEmUp {
 	public class EnemyShip : Ship {
 
 		public enum State {

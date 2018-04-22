@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using Xenon;
 
-namespace LD41 {
+namespace LD41.ShootEmUp {
 	public class ShootEmUpManager : Singleton<ShootEmUpManager> {
 
 		public MapBounds mapBounds;

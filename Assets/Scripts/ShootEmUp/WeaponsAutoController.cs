@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LD41 {
+namespace LD41.ShootEmUp {
 	public enum FiringMode {
 		NotFiring,
 		Firing

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LD41 {
+namespace LD41.ShootEmUp {
 	public class FollowMover : StayingMover {
 
 		public float minDistance = 3f;

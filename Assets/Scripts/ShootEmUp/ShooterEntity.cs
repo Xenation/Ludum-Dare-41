@@ -1,4 +1,4 @@
-﻿namespace LD41 {
+﻿namespace LD41.ShootEmUp {
 	public class ShooterEntity : MovingEntity {
 
 		protected ShootEmUpManager manager;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LD41 {
+namespace LD41.ShootEmUp {
 	public abstract class EnemyMover : MonoBehaviour {
 
 		protected EnemyShip ship;

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using LD41.ShootEmUp;
+using UnityEngine;
 
 namespace LD41.Processes {
 	public class EnemyEnterTranslationProcess : EnemyShipProcess {

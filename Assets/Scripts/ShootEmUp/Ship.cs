@@ -3,7 +3,7 @@ using LD41.Events;
 using UnityEngine;
 using Xenon;
 
-namespace LD41 {
+namespace LD41.ShootEmUp {
 	public class Ship : ShooterEntity, IEventSender {
 
 		public float health = 1f;

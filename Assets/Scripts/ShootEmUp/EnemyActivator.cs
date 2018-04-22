@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LD41 {
+namespace LD41.ShootEmUp {
 	[RequireComponent(typeof(EnemyShip))]
 	public class EnemyActivator : MonoBehaviour {
 

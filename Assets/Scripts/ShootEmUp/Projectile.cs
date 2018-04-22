@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace LD41 {
+namespace LD41.ShootEmUp {
 	[RequireComponent(typeof(Rigidbody2D), typeof(SpriteRenderer))]
 	public class Projectile : ShooterEntity {
 		
