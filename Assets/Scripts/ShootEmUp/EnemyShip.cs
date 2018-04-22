@@ -88,7 +88,7 @@ namespace LD41.ShootEmUp {
 							SwitchState(State.Active);
 							break;
 						case EnemyEnterBehaviour.Translate:
-							procManager.LaunchProcess(new EnemyEnterTranslationProcess(this, (transform.localPosition.x > 0) ? 1 : -1, manager.mapBounds.bounds.extents.x));
+							procManager.LaunchProcess(new EnemyEnterTranslationProcess(this, (transform.localPosition.x > 0) ? 1 : -1, manager.mapBounds.bounds.size.x));
 							break;
 					}
 					break;

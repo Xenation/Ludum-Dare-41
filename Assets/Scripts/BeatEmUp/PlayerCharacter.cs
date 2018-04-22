@@ -1,21 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace LD41.ShootEmUp {
-	public class ShipController : Ship {
-		
+namespace LD41.BeatEmUp {
+	[RequireComponent(typeof(Rigidbody2D))]
+	public class PlayerCharacter : Character {
+
 		private Vector2 inputDelta;
 
-		private void Update() {
-			inputDelta = new Vector2(Input.GetAxisRaw("Horizontal Right"), Input.GetAxisRaw("Vertical Right"));
+		protected void Update() {
+			inputDelta = new Vector2(Input.GetAxisRaw("Horizontal Left"), Input.GetAxisRaw("Vertical Left"));
 #if UNITY_EDITOR
 			manager.mapBounds.DebugDraw();
 #endif
-
-			if (Input.GetButton("Fire1")) {
-				FireAll();
-			}
 		}
 
 		protected new void FixedUpdate() {
