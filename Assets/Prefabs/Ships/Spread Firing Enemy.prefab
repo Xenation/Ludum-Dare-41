@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1115841410126672}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 45, z: 0}
+  m_LocalPosition: {x: 0, y: 90, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4580103185435044}
@@ -118,7 +118,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.02}
+  m_Offset: {x: 0, y: -0.01503589}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.36, y: 0.09}
+  m_Size: {x: 0.36, y: 0.17137147}
   m_EdgeRadius: 0
 --- !u!95 &95622211112807580
 Animator:
@@ -200,7 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   template: {fileID: 1064158668660834, guid: d3c8180dd520a9f4ca409af363941e31, type: 2}
-  fireRate: 8
+  fireRate: 10
 --- !u!114 &114597248699839016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -212,11 +212,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 026e42b307ae25349b014d96df7b11d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   velocity: {x: 0, y: 0}
   health: 15
   scoreGain: 500
   spawnTriggerType: 0
+  enterSpeed: 4
   isFixed: 0
   enterType: 0
   shootType: 0

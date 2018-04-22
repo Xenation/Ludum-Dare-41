@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1459180071856380}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0}
-  m_LocalPosition: {x: -9, y: 35, z: 0}
+  m_LocalPosition: {x: 17, y: 50, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children:
   - {fileID: 4977984140527610}
@@ -169,6 +169,7 @@ MonoBehaviour:
   health: 15
   scoreGain: 100
   spawnTriggerType: 1
+  enterSpeed: 8
   isFixed: 0
   enterType: 2
   shootType: 0

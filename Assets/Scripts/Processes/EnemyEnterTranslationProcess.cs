@@ -16,7 +16,7 @@ namespace LD41.Processes {
 
 		public override void OnBegin() {
 			startX = ship.transform.position.x;
-			ship.velocity = new Vector2(-side * ship.speed, 0);
+			ship.velocity = new Vector2(-side * ship.enterSpeed, 0);
 		}
 
 		public override void OnTerminate() {

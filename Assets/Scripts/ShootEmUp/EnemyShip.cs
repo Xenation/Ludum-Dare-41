@@ -15,6 +15,7 @@ namespace LD41.ShootEmUp {
 		[System.NonSerialized]
 		public Collider2D spawnTrigger;
 
+		public float enterSpeed = 4f;
 		public bool isFixed;
 		public EnemyEnterBehaviour enterType;
 		public EnemyShootBehaviour shootType;

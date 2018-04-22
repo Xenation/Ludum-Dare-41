@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4135148906433538}
   - component: {fileID: 212735305016020446}
-  - component: {fileID: 60873828656078376}
+  - component: {fileID: 58917302046326574}
   - component: {fileID: 114184235878066692}
   - component: {fileID: 114730354688476610}
   - component: {fileID: 114462120030858812}
@@ -45,8 +45,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!60 &60873828656078376
-PolygonCollider2D:
+--- !u!58 &58917302046326574
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -58,22 +58,8 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.48, y: 0.48}
-    newSize: {x: 0.2, y: 0.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.4}
-      - {x: -0.2510565, y: 0.009017}
-      - {x: -0.0877852, y: -0.2090171}
-      - {x: 0.0877854, y: -0.2090169}
-      - {x: 0.2510565, y: 0.009017}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!114 &114184235878066692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,6 +76,7 @@ MonoBehaviour:
   health: 10
   scoreGain: 200
   spawnTriggerType: 1
+  enterSpeed: 4
   isFixed: 0
   enterType: 2
   shootType: 0
