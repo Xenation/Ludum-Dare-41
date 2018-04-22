@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   velocity: {x: 0, y: 0}
-  health: 20
+  health: 15
   scoreGain: 500
   spawnTriggerType: 0
   isFixed: 0
