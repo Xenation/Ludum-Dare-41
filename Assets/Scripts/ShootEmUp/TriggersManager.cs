@@ -20,18 +20,18 @@ namespace LD41.ShootEmUp {
 			top.transform.position = new Vector3(0, bounds.extents.y + 1);
 			top.size = new Vector2(bounds.size.x, 1f);
 
-			rightHigh.transform.position = new Vector3(bounds.size.x, -bounds.extents.y + bounds.size.y * highRatio);
+			rightHigh.transform.position = new Vector3(bounds.size.x, -bounds.extents.y + bounds.size.y * highRatio - .5f);
 			rightHigh.size = new Vector2(bounds.size.x, 1f);
-			rightMiddle.transform.position = new Vector3(bounds.size.x, -bounds.extents.y + bounds.size.y * middleRatio);
+			rightMiddle.transform.position = new Vector3(bounds.size.x, -bounds.extents.y + bounds.size.y * middleRatio - .5f);
 			rightMiddle.size = new Vector2(bounds.size.x, 1f);
-			rightLow.transform.position = new Vector3(bounds.size.x, -bounds.extents.y + bounds.size.y * lowRatio);
+			rightLow.transform.position = new Vector3(bounds.size.x, -bounds.extents.y + bounds.size.y * lowRatio - .5f);
 			rightLow.size = new Vector2(bounds.size.x, 1f);
 
-			leftHigh.transform.position = new Vector3(-bounds.size.x, -bounds.extents.y + bounds.size.y * highRatio);
+			leftHigh.transform.position = new Vector3(-bounds.size.x, -bounds.extents.y + bounds.size.y * highRatio - .5f);
 			leftHigh.size = new Vector2(bounds.size.x, 1f);
-			leftMiddle.transform.position = new Vector3(-bounds.size.x, -bounds.extents.y + bounds.size.y * middleRatio);
+			leftMiddle.transform.position = new Vector3(-bounds.size.x, -bounds.extents.y + bounds.size.y * middleRatio - .5f);
 			leftMiddle.size = new Vector2(bounds.size.x, 1f);
-			leftLow.transform.position = new Vector3(-bounds.size.x, -bounds.extents.y + bounds.size.y * lowRatio);
+			leftLow.transform.position = new Vector3(-bounds.size.x, -bounds.extents.y + bounds.size.y * lowRatio - .5f);
 			leftLow.size = new Vector2(bounds.size.x, 1f);
 		}
 

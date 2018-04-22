@@ -21,7 +21,7 @@ TagManager:
   - EnemyProjectile
   - EnemyTrigger
   - 
-  - 
+  - Decor
   - 
   - 
   - 
@@ -39,6 +39,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1801899185
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Projectiles
+    uniqueID: 1445665563
     locked: 0
