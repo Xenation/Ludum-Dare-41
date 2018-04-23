@@ -8,8 +8,10 @@ public class UIManager : MonoBehaviour {
 
 
 	public LD41.ShootEmUp.ShipController ship;
+	public LD41.BeatEmUp.PlayerCharacter player;
 
-	public Image heartLifeBar;
+	public Image shipLifeBar;
+	public Image characterLifeBar;
 
 	[SerializeField]
 	private Text scoreTxt;
@@ -29,12 +31,19 @@ public class UIManager : MonoBehaviour {
 	private void Update() {
 		scoreTxt.text = LD41.GameManager.I.score.ToString();
 		SetShipHealth();
+		SetCharacterHealth();
 		SetEndPanel();
 	}
 
 	private void SetShipHealth() {
 
-		heartLifeBar.fillAmount = ship.health / 10;
+		shipLifeBar.fillAmount = ship.health / 10;
+
+	}
+
+	private void SetCharacterHealth() {
+
+		characterLifeBar.fillAmount = player.health / 10;
 
 	}
 
