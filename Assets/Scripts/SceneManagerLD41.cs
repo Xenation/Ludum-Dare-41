@@ -1,24 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SceneManagerLD41 : MonoBehaviour {
-	
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	private void Awake() {
+		DontDestroyOnLoad(gameObject);
+		SceneManager.sceneLoaded += OnSceneLoad;
 	}
 
-	public void loadScene(string nextScene) {
-		UnityEngine.SceneManagement.SceneManager.LoadScene(nextScene);
+	private void OnSceneLoad(Scene scene, LoadSceneMode loadMode) {
+		Time.timeScale = 1f;
+	}
+
+	public void LoadScene(string nextScene) {
+		SceneManager.LoadScene(nextScene);
 	}
 
 	public void QuitApp() {
-		UnityEngine.Application.Quit();
+		Application.Quit();
 	}
+
 }

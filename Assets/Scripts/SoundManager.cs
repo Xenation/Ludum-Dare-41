@@ -30,16 +30,6 @@ public class SoundManager : MonoBehaviour {
 		DontDestroyOnLoad(gameObject);
 	}
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
 	public void PlaySingle(AudioClip clip) {
 		sfxSource.clip = clip;
 		sfxSource.Play();
@@ -67,12 +57,10 @@ public class SoundManager : MonoBehaviour {
 	}
 
 	public void PlaylaserShootSoundEffect() {
-
 		RandomizeClips(laserShootEffect, sfxSource, true);
 	}
 
 	public void PlayHitSoundEffect() {
-
 		RandomizeClips(hitEffect, sfxSource, true);
 	}
 

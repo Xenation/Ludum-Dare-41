@@ -2658,6 +2658,26 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 080328a5339ba9140b1c7e8bd1288f8c, type: 2}
+    - target: {fileID: 114972673224609946, guid: 19758cb0c61920740959347d388971d5,
+        type: 2}
+      propertyPath: blinkingColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972673224609946, guid: 19758cb0c61920740959347d388971d5,
+        type: 2}
+      propertyPath: blinkingColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972673224609946, guid: 19758cb0c61920740959347d388971d5,
+        type: 2}
+      propertyPath: blinkingColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114972673224609946, guid: 19758cb0c61920740959347d388971d5,
+        type: 2}
+      propertyPath: blinkingColor.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 19758cb0c61920740959347d388971d5, type: 2}
   m_IsPrefabParent: 0

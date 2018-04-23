@@ -74,9 +74,9 @@ MonoBehaviour:
   velocity: {x: 0, y: 0}
   health: 10
   scoreGain: 200
-  hitBlink: 0.4
+  hitBlink: 0.2
   isBlinking: 0
-  blinkingColor: {r: 0, g: 0, b: 0, a: 0}
+  blinkingColor: {r: 1.8, g: 1.8, b: 1.8, a: 1}
   spawnTriggerType: 0
   enterSpeed: 4
   isFixed: 1
