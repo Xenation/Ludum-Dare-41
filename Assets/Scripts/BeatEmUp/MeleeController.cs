@@ -23,6 +23,7 @@ namespace LD41.BeatEmUp {
 
 		public void Hit() {
 			if (Time.time < lastHitTime + cooldown) return;
+			if(character.GetType() == typeof(PlayerCharacter)) ((PlayerCharacter)character).anim.SetTrigger("Attack");
 			this.Send(new MeleeAttackEvent(this));
 			lastHitTime = Time.time;
 			ContactFilter2D filter = new ContactFilter2D();

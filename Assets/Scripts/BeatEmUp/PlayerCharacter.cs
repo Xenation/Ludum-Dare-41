@@ -7,7 +7,7 @@ namespace LD41.BeatEmUp {
 	public class PlayerCharacter : Character {
 
 		private Vector2 inputDelta;
-		private Animator anim;
+		public Animator anim;
 		private int atkStateShort = Animator.StringToHash("Attack");
 
 		protected new void Awake() {
@@ -23,7 +23,6 @@ namespace LD41.BeatEmUp {
 
 			if (Input.GetButtonDown("Fire1")) {
 				melee.Hit();
-				anim.SetTrigger(atkStateShort);
 			}
 		}
 

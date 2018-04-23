@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Map
   - LastShip
+  - Map_Beat
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - 
   - Decor
   - Terminal
-  - 
+  - MapBeat
   - 
   - 
   - 

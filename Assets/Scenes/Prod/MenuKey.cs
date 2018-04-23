@@ -19,6 +19,8 @@
 
 	public GameObject Attack;
 
+	private float baseColor = 0.5f;
+
 	void Start() {
 		ReadAxes();
 
@@ -36,7 +38,6 @@
 	}
 
 	void Update() {
-		float baseColor = 0.5f;
 		L_Right.GetComponent<Image>().color = new Color(1,1,1, Mathf.Clamp01(Input.GetAxisRaw("Horizontal Left")) + baseColor);
 		L_Left.GetComponent<Image>().color = new Color(1,1,1, Mathf.Clamp01(-Input.GetAxisRaw("Horizontal Left")) + baseColor);
 
@@ -66,7 +67,7 @@
 			keyNames[i*2] = axis.FindPropertyRelative("negativeButton").stringValue;
 			keyNames[i*2+1] = axis.FindPropertyRelative("positiveButton").stringValue;
 		}
-		
+
 		keyNames[8] = axisArray.GetArrayElementAtIndex(4).FindPropertyRelative("positiveButton").stringValue;
 	}
  
