@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using LD41.Events;
 using UnityEngine;
 using Xenon;
@@ -83,6 +83,9 @@ namespace LD41.ShootEmUp {
 
 		public virtual void Die() {
 			Destroy(gameObject);
+			if(gameObject.tag == "LastShip") {
+				GameManager.I.endGame = true;
+			}
 			this.Send(new ShipKilledEvent(this));
 		}
 
