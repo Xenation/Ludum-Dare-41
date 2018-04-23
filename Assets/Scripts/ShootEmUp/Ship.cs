@@ -36,7 +36,7 @@ namespace LD41.ShootEmUp {
 		}
 
 		protected virtual float GetBlinkValue() {
-			float blinkValue = (Time.time - lastHitTime) % (hitBlink * 2f) * 2f;
+			float blinkValue = ((Time.time - lastHitTime) % hitBlink) * (1f / hitBlink) * 2f;
 			if (blinkValue > 1f) {
 				blinkValue = 1f - (blinkValue - 1f);
 			}
