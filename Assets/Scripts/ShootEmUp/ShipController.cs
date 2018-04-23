@@ -1,15 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using LD41.Events;
 using UnityEngine;
+using Xenon;
 
 namespace LD41.ShootEmUp {
 	[RequireComponent(typeof(SpriteRenderer))]
-	public class ShipController : Ship {
+	public class ShipController : Ship, IEventSender {
 
 		public float invincibilityTime = 3f;
 
 		private Vector2 inputDelta;
-		
 
 		protected new void Awake() {
 			base.Awake();
@@ -42,7 +43,14 @@ namespace LD41.ShootEmUp {
 			if (!isBlinking) {
 				isBlinking = true;
 				base.ReceiveDamage(dmg);
+				this.Send(new PlayerShipDamagedEvent(this, dmg));
 			}
+		}
+
+		public override void Die() {
+			sprRenderer.enabled = false;
+			TriggerOnDeath();
+			this.Send(new PlayerShipDeathEvent(this));
 		}
 
 	}

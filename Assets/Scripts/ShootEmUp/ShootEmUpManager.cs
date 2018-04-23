@@ -23,6 +23,24 @@ namespace LD41.ShootEmUp {
 			mapTransform.localScale = new Vector3(mapBounds.bounds.size.x, mapBounds.bounds.size.x);
 		}
 
+		private void Update() {
+			if (Input.GetKeyDown(KeyCode.Keypad0)) {
+				mapSpeed = 0f;
+			}
+			if (Input.GetKeyDown(KeyCode.Keypad1)) {
+				mapSpeed = 5f;
+			}
+			if (Input.GetKeyDown(KeyCode.Keypad2)) {
+				mapSpeed = 10f;
+			}
+			if (Input.GetKeyDown(KeyCode.Keypad3)) {
+				mapSpeed = 15f;
+			}
+			if (Input.GetKeyDown(KeyCode.Keypad8)) {
+				mapSpeed = 40f;
+			}
+		}
+
 		private void FixedUpdate() {
 			mapTransform.position += Vector3.down * mapSpeed * Time.fixedDeltaTime;
 		}
@@ -59,6 +77,10 @@ namespace LD41.ShootEmUp {
 			Gizmos.DrawLine(new Vector3(farRight, triggLow), new Vector3(right, triggLow));
 
 			Gizmos.color = prevColor;
+		}
+
+		private void OnPlayerDeath(Ship player) {
+
 		}
 
 	}

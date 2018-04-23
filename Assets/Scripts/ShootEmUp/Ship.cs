@@ -6,6 +6,12 @@ using Xenon;
 namespace LD41.ShootEmUp {
 	public class Ship : ShooterEntity, IEventSender {
 
+		public delegate void OnDamageReceived(Ship receiver, float dmg);
+		public event OnDamageReceived OnDamageReceivedEvent;
+
+		public delegate void OnDeath(Ship dead);
+		public event OnDeath OnDeathEvent;
+
 		public float health = 1f;
 		public int scoreGain = 0;
 		public float hitBlink = .4f;
@@ -30,7 +36,7 @@ namespace LD41.ShootEmUp {
 		}
 
 		protected virtual float GetBlinkValue() {
-			float blinkValue = (Time.time - lastHitTime) % (hitBlink * 2f) * 2f;
+			float blinkValue = ((Time.time - lastHitTime) % hitBlink) * (1f / hitBlink) * 2f;
 			if (blinkValue > 1f) {
 				blinkValue = 1f - (blinkValue - 1f);
 			}
@@ -78,16 +84,28 @@ namespace LD41.ShootEmUp {
 			health -= dmg;
 			if (health <= 0) {
 				health = 0f;
+			}
+			TriggerOnDamageReceived(dmg);
+			if (health == 0f) {
 				Die();
 			}
 		}
 
-		public virtual void Die() {
-			Destroy(gameObject);
-			if(gameObject.tag == "LastShip") {
-				GameManager.I.endGame = true;
+		protected void TriggerOnDamageReceived(float dmg) {
+			if (OnDamageReceivedEvent != null) {
+				OnDamageReceivedEvent.Invoke(this, dmg);
 			}
-			this.Send(new ShipKilledEvent(this));
+		}
+
+		public virtual void Die() {
+			TriggerOnDeath();
+			Destroy(gameObject);
+		}
+
+		protected void TriggerOnDeath() {
+			if (OnDeathEvent != null) {
+				OnDeathEvent.Invoke(this);
+			}
 		}
 
 	}

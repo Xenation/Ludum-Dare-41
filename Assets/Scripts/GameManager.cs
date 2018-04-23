@@ -1,12 +1,10 @@
 using LD41.Events;
-using UnityEngine;
 using Xenon;
 
 namespace LD41 {
-	public class GameManager : Singleton<GameManager>, IEventListener {
+	public class GameManager : Singleton<GameManager>, IEventListener, IEventSender {
 
 		public int score = 0;
-		public bool endGame = false;
 
 		private void Awake() {
 			this.RegisterListener();
@@ -16,10 +14,16 @@ namespace LD41 {
 			EventManager.I.UnregisterListener(this);
 		}
 
-		public void OnShipKilled(IEventSender sender, ShipKilledEvent ev) {
+		public void OnEnemyShipDeath(IEventSender sender, EnemyShipDeathEvent ev) {
 			score += ev.ship.scoreGain;
+			this.Send(new ScoreChangedEvent(score));
 		}
 
+		public void OnEnemyShipDamaged(IEventSender sender, EnemyShipDamagedEvent ev) {
+			if (ev.ship.CompareTag("LastShip")) {
+				this.Send(new GameWonEvent());
+			}
+		}
 
 	}
 }

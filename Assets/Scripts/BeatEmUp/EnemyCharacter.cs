@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using LD41.Events;
+using UnityEngine;
+using Xenon;
 
 namespace LD41.BeatEmUp {
 	[RequireComponent(typeof(Rigidbody2D))]
@@ -25,6 +27,16 @@ namespace LD41.BeatEmUp {
 				}
 			}
 			base.FixedUpdate();
+		}
+
+		public override void ReceiveDamage(Character inflicter, float damage) {
+			base.ReceiveDamage(inflicter, damage);
+			this.Send(new EnemyCharacterDamagedEvent(this, inflicter, damage));
+		}
+
+		public override void Die() {
+			base.Die();
+			this.Send(new EnemyCharacterDeathEvent(this));
 		}
 
 	}

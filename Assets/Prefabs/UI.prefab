@@ -194,6 +194,7 @@ GameObject:
   - component: {fileID: 223071821950888690}
   - component: {fileID: 114091354489911996}
   - component: {fileID: 114966348587805916}
+  - component: {fileID: 114440667346477476}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -485,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.6275859, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -790,7 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.6275859, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -805,6 +806,24 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114440667346477476
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1409602894863322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a966a71999dc1d940b97e6d6ec4dbff2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  player: {fileID: 0}
+  shipLifeBar: {fileID: 114091087139252094}
+  characterLifeBar: {fileID: 114383877441400316}
+  scoreTxt: {fileID: 114615447940334672}
+  victoryPanel: {fileID: 1880963562773730}
+  defeatPanel: {fileID: 1703431561745650}
 --- !u!114 &114485538249686402
 MonoBehaviour:
   m_ObjectHideFlags: 1

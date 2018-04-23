@@ -7,7 +7,7 @@
 		[HideInInspector] _Flip ("Flip", Vector) = (1, 1, 1, 1)
 		[PerRendererData] _AlphaTex ("External Alpha", 2D) = "white" {}
 		[PerRendererData] _EnableExternalAlpha ("Enable External Alpha", Float) = 0
-		[PerInstanceData][HDR] _Tint ("Instance Tint", Color) = (1, 1, 1, 1)
+		[HideInInspector] _Tint ("Instance Tint", Color) = (1, 1, 1, 1)
 	}
 	SubShader {
 		Tags {
@@ -43,9 +43,9 @@
 					UNITY_DEFINE_INSTANCED_PROP(fixed4, _Tint)
 				UNITY_INSTANCING_BUFFER_END(PerDrawSprite)
 
-				#define _RendererColor  UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteRendererColorArray)
-				#define _Flip           UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteFlipArray)
-				#define _Tint           UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, _Tint)
+				#define _RendererColor UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteRendererColorArray)
+				#define _Flip UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, unity_SpriteFlipArray)
+				#define _Tint UNITY_ACCESS_INSTANCED_PROP(PerDrawSprite, _Tint)
 
 			#endif // instancing
 
@@ -53,8 +53,8 @@
 			#ifndef UNITY_INSTANCING_ENABLED
 				fixed4 _RendererColor;
 				fixed2 _Flip;
-				fixed4 _Tint;
 			#endif
+			fixed4 _Tint; // Fixes a not defined error but should not be there
 			float _EnableExternalAlpha;
 			CBUFFER_END
 
@@ -87,7 +87,7 @@
 
 				OUT.vertex = UnityObjectToClipPos(IN.vertex);
 				OUT.texcoord = IN.texcoord;
-				OUT.color = IN.color * _Color * _RendererColor;
+				OUT.color = IN.color * _Color * _RendererColor * _Tint;
 
 				#ifdef PIXELSNAP_ON
 					OUT.vertex = UnityPixelSnap (OUT.vertex);
@@ -111,7 +111,7 @@
 			}
 			
 			fixed4 frag(Interpolator IN) : SV_Target {
-				fixed4 c = SampleSpriteTexture (IN.texcoord) * IN.color * _Tint;
+				fixed4 c = SampleSpriteTexture (IN.texcoord) * IN.color;
 				c.rgb *= c.a;
 				return c;
 			}

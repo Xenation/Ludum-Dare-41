@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
+using Xenon;
 
 namespace LD41.BeatEmUp {
 	[RequireComponent(typeof(Rigidbody2D))]
-	public class Character : MonoBehaviour {
+	public class Character : MonoBehaviour, IEventSender {
 
 		public delegate void OnDamageReceived(Character dmgDealer);
 		public event OnDamageReceived OnDamageReceivedEvent;
@@ -50,29 +51,39 @@ namespace LD41.BeatEmUp {
 			}
 		}
 
-		public void ReceiveDamage(Character ch, float damage) {
+		public virtual void ReceiveDamage(Character inflicter, float damage) {
 			health -= damage;
 			if (health <= 0) {
 				health = 0;
-				Die();
 			}
-			if (OnDamageReceivedEvent != null) {
-				OnDamageReceivedEvent.Invoke(ch);
+			TriggerOnDamageReceived(inflicter, damage);
+			if (health == 0f) {
+				Die();
 			}
 		}
 
-		protected void DamageReceived(Character ch) {
+		protected void TriggerOnDamageReceived(Character inflicter, float dmg) {
+			if (OnDamageReceivedEvent != null) {
+				OnDamageReceivedEvent.Invoke(inflicter);
+			}
+		}
+
+		protected virtual void DamageReceived(Character ch) {
 			isStunned = true;
 			stunStartTime = Time.time;
 			rb.velocity = Vector2.zero;
 			rb.AddForce(-(ch.transform.position - transform.position).normalized * knockForce, ForceMode2D.Impulse);
 		}
 
-		public void Die() {
+		public virtual void Die() {
+			TriggerOnDeath();
+			Destroy(gameObject);
+		}
+
+		protected void TriggerOnDeath() {
 			if (OnDeathEvent != null) {
 				OnDeathEvent.Invoke(this);
 			}
-			Destroy(gameObject);
 		}
 
 	}
