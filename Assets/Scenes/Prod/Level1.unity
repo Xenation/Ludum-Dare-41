@@ -5703,13 +5703,31 @@ MonoBehaviour:
       postDelay: 5
     - enemyCount: 3
       postDelay: 0
-    postDelay: 15
+    postDelay: 10
   - subWaves:
     - enemyCount: 2
       postDelay: 5
     - enemyCount: 4
       postDelay: 10
     - enemyCount: 6
+      postDelay: 0
+    postDelay: 10
+  - subWaves:
+    - enemyCount: 4
+      postDelay: 5
+    - enemyCount: 7
+      postDelay: 10
+    - enemyCount: 10
+      postDelay: 0
+    postDelay: 10
+  - subWaves:
+    - enemyCount: 2
+      postDelay: 5
+    - enemyCount: 4
+      postDelay: 10
+    - enemyCount: 6
+      postDelay: 12
+    - enemyCount: 8
       postDelay: 0
     postDelay: 0
 --- !u!114 &1641639101
