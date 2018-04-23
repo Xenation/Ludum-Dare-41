@@ -8,6 +8,7 @@ namespace LD41.BeatEmUp {
 
 		private Vector2 inputDelta;
 		private Animator anim;
+		private int atkStateShort = Animator.StringToHash("Attack");
 
 		protected new void Awake() {
 			base.Awake();
@@ -22,7 +23,7 @@ namespace LD41.BeatEmUp {
 
 			if (Input.GetButtonDown("Fire1")) {
 				melee.Hit();
-				anim.SetTrigger("Attack");
+				anim.SetTrigger(atkStateShort);
 			}
 		}
 
@@ -33,6 +34,9 @@ namespace LD41.BeatEmUp {
 				velocity *= speed;
 				manager.mapBounds.KeepVelocityInBounds(transform.position, ref velocity, Time.fixedDeltaTime);
 			}
+
+			isScaleLocked = (anim.GetCurrentAnimatorStateInfo(1).shortNameHash == atkStateShort);
+
 			base.FixedUpdate();
 		}
 
