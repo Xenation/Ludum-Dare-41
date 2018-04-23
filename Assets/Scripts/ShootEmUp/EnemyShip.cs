@@ -1,4 +1,5 @@
-﻿using LD41.Processes;
+﻿using LD41.Events;
+using LD41.Processes;
 using UnityEngine;
 using Xenon;
 
@@ -87,11 +88,6 @@ namespace LD41.ShootEmUp {
 			}
 		}
 
-		public override void ReceiveDamage(float dmg) {
-			isBlinking = true;
-			base.ReceiveDamage(dmg);
-		}
-
 		public void SwitchState(State st) {
 			state = st;
 			switch (st) {
@@ -124,6 +120,17 @@ namespace LD41.ShootEmUp {
 					}
 					break;
 			}
+		}
+
+		public override void ReceiveDamage(float dmg) {
+			isBlinking = true;
+			base.ReceiveDamage(dmg);
+			this.Send(new EnemyShipDamagedEvent(this, dmg));
+		}
+
+		public override void Die() {
+			this.Send(new EnemyShipDeathEvent(this));
+			base.Die();
 		}
 
 	}

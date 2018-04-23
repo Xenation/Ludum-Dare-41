@@ -1,64 +1,75 @@
-using System.Collections;
-using System.Collections.Generic;
+using LD41.BeatEmUp;
+using LD41.Events;
+using LD41.ShootEmUp;
 using UnityEngine;
 using UnityEngine.UI;
-using LD41.Events;
+using Xenon;
 
-public class UIManager : MonoBehaviour {
+namespace LD41 {
+	public class UIManager : MonoBehaviour, IEventListener {
 
+		public Image shipLifeBar;
+		public Image characterLifeBar;
 
-	public LD41.ShootEmUp.ShipController ship;
-	public LD41.BeatEmUp.PlayerCharacter player;
-
-	public Image shipLifeBar;
-	public Image characterLifeBar;
-
-	[SerializeField]
-	private Text scoreTxt;
-
-
-	[SerializeField]
-	private GameObject victoryPanel;
-	[SerializeField]
-	private GameObject defeatPanel;
-
-	// Use this for initialization
-	void Start () {
+		[SerializeField]
+		private Text scoreTxt;
 		
-	}
+		[SerializeField]
+		private GameObject victoryPanel;
+		[SerializeField]
+		private GameObject defeatPanel;
 
-	// Update is called once per frame
-	private void Update() {
-		scoreTxt.text = LD41.GameManager.I.score.ToString();
-		SetShipHealth();
-		SetCharacterHealth();
-		SetEndPanel();
-	}
+		private void Awake() {
+			this.RegisterListener();
+			UpdateScore();
+		}
 
-	private void SetShipHealth() {
+		private void OnDestroy() {
+			EventManager.I.UnregisterListener(this);
+		}
 
-		shipLifeBar.fillAmount = ship.health / 10;
+		private void UpdateScore() {
+			scoreTxt.text = GameManager.I.score.ToString();
+		}
 
-	}
+		private void UpdateShipHealth(Ship ship) {
+			shipLifeBar.fillAmount = ship.health / 10;
+		}
 
-	private void SetCharacterHealth() {
+		private void UpdateCharacterHealth(Character character) {
+			characterLifeBar.fillAmount = character.health / 10;
+		}
 
-		characterLifeBar.fillAmount = player.health / 10;
-
-	}
-
-	private void SetEndPanel() {
-		if(ship.health <= 0) {
+		private void DisplayGameOverPanel() {
 			defeatPanel.SetActive(true);
-			victoryPanel.SetActive(false);
 			Time.timeScale = 0;
 		}
-		if (LD41.GameManager.I.endGame) {
+
+		private void DisplayWinPanel() {
 			victoryPanel.SetActive(true);
-			defeatPanel.SetActive(false);
 			Time.timeScale = 0;
 		}
+
+		//// EVENTS \\\\
+		public void OnPlayerShipDamaged(IEventSender sender, PlayerShipDamagedEvent ev) {
+			UpdateShipHealth(ev.ship);
+		}
+
+		public void OnPlayerShipDeath(IEventSender sender, PlayerShipDeathEvent ev) {
+			DisplayGameOverPanel();
+		}
+
+		public void OnPlayerCharacterDamaged(IEventSender sender, PlayerCharacterDamagedEvent ev) {
+			UpdateCharacterHealth(ev.character);
+		}
+
+		public void OnGameWon(IEventSender sender, GameWonEvent ev) {
+			DisplayWinPanel();
+		}
+
+		public void OnScoreChanged(IEventSender sender, ScoreChangedEvent ev) {
+			UpdateScore();
+		}
+
 	}
-
-
 }
