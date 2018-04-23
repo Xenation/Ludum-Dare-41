@@ -26,6 +26,7 @@ namespace LD41.BeatEmUp {
 		private Vector3 startScale;
 		protected bool isStunned = false;
 		protected float stunStartTime;
+		protected bool isScaleLocked = false;
 
 		protected void Awake() {
 			rb = GetComponent<Rigidbody2D>();
@@ -42,10 +43,12 @@ namespace LD41.BeatEmUp {
 					isStunned = false;
 				}
 			} else {
-				if (velocity.x < 0) {
-					transform.localScale = new Vector3(-startScale.x, startScale.y, startScale.z);
-				} else if (velocity.x > 0) {
-					transform.localScale = new Vector3(startScale.x, startScale.y, startScale.z);
+				if(isScaleLocked == false) {
+					if (velocity.x < 0) {
+						transform.localScale = new Vector3(-startScale.x, startScale.y, startScale.z);
+					} else if (velocity.x > 0) {
+						transform.localScale = new Vector3(startScale.x, startScale.y, startScale.z);
+					}
 				}
 				rb.velocity = velocity;
 			}

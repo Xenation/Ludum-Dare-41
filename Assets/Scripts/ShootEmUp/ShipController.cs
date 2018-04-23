@@ -28,6 +28,7 @@ namespace LD41.ShootEmUp {
 			if (Time.time > lastHitTime + invincibilityTime) {
 				isBlinking = false;
 				SetTint(Color.white);
+				this.Send(new PlayerShipInvincibilityEndEvent(this));
 			}
 		}
 
@@ -44,6 +45,7 @@ namespace LD41.ShootEmUp {
 				isBlinking = true;
 				base.ReceiveDamage(dmg);
 				this.Send(new PlayerShipDamagedEvent(this, dmg));
+				this.Send(new PlayerShipInvincibilityStartEvent(this));
 			}
 		}
 
