@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LD41.ShootEmUp {
 	public static class ProjectileFactory {
@@ -10,6 +11,11 @@ namespace LD41.ShootEmUp {
 		private static Dictionary<GameObject, Queue<Projectile>> projectileCimetary = new Dictionary<GameObject, Queue<Projectile>>();
 
 		static ProjectileFactory() {
+			SceneManager.sceneUnloaded += OnSceneUnload;
+			SceneManager.sceneLoaded += OnSceneLoad;
+		}
+
+		private static void Initialize() {
 			gameManager = GameManager.I;
 			projectilesStorage = new GameObject("ProjectilesStorage").transform;
 			projectilesStorage.SetParent(gameManager.transform, false);
@@ -45,6 +51,18 @@ namespace LD41.ShootEmUp {
 			projectile.gameObject.SetActive(false);
 			Queue<Projectile> grave = GetOrCreateGrave(projectile.Template);
 			grave.Enqueue(projectile);
+		}
+
+		private static void ClearCimetary() {
+			projectileCimetary.Clear();
+		}
+
+		private static void OnSceneUnload(Scene scene) {
+			ClearCimetary();
+		}
+
+		private static void OnSceneLoad(Scene scene, LoadSceneMode loadMode) {
+			Initialize();
 		}
 
 	}

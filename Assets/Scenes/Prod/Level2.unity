@@ -2070,7 +2070,7 @@ Prefab:
     - target: {fileID: 114526658603291824, guid: 436c810a46a454e428a5cb95db09a1b9,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: loadScene
+      value: LoadScene
       objectReference: {fileID: 0}
     - target: {fileID: 114526658603291824, guid: 436c810a46a454e428a5cb95db09a1b9,
         type: 2}

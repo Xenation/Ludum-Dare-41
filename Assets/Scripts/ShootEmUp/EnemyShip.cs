@@ -44,7 +44,7 @@ namespace LD41.ShootEmUp {
 			enabled = true;
 		}
 
-		protected void Update() {
+		protected new void Update() {
 			switch (state) {
 				case State.Active:
 					switch (shootType) {
@@ -54,6 +54,17 @@ namespace LD41.ShootEmUp {
 					}
 					break;
 			}
+
+			base.Update();
+
+			if (Time.time > lastHitTime + hitBlink) {
+				isBlinking = false;
+				SetTint(Color.white);
+			}
+		}
+
+		protected override float GetBlinkValue() {
+			return (Time.time - lastHitTime).Remap(0f, hitBlink, 1f, 0f).Clamp(0, 1);
 		}
 
 		protected new void FixedUpdate() {
@@ -74,6 +85,11 @@ namespace LD41.ShootEmUp {
 			if (bounds.BellowKillY(transform.position)) {
 				Die();
 			}
+		}
+
+		public override void ReceiveDamage(float dmg) {
+			isBlinking = true;
+			base.ReceiveDamage(dmg);
 		}
 
 		public void SwitchState(State st) {
