@@ -26,6 +26,9 @@ namespace LD41.ShootEmUp {
 		protected new void Awake() {
 			base.Awake();
 			GetComponentsInChildren(weapons);
+			foreach (Weapon weapon in weapons) {
+				weapon.ship = this;
+			}
 			sprRenderer = GetComponent<SpriteRenderer>();
 		}
 
@@ -72,7 +75,10 @@ namespace LD41.ShootEmUp {
 			} else if (gameObject.layer == LayerUtils.Enemy) {
 				if (collision.gameObject.layer == LayerUtils.PlayerProjectile) {
 					Projectile projectile = collision.gameObject.GetComponent<Projectile>();
-					Instantiate(Resources.Load("Prefabs/Explosion"), collision.contacts[0].point, Quaternion.identity);
+					ContactPoint2D[] contacts = new ContactPoint2D[1];
+					if (collision.GetContacts(contacts) != 0) {
+						Instantiate(Resources.Load("Prefabs/Explosion"), contacts[0].point, Quaternion.identity);
+					}
 					ReceiveDamage(projectile.damage);
 					projectile.Kill();
 				}
