@@ -3125,6 +3125,10 @@ Prefab:
       propertyPath: m_Name
       value: Conical Enemy (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1816136634891264, guid: cf220bc296d2dbe41abd8b7a5224e486, type: 2}
+      propertyPath: m_TagString
+      value: LastShip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf220bc296d2dbe41abd8b7a5224e486, type: 2}
   m_IsPrefabParent: 0
