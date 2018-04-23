@@ -5653,39 +5653,41 @@ MonoBehaviour:
     type: 2}
   waves:
   - subWaves:
-    - enemyCount: 2
+    - enemyCount: 3
       postDelay: 0
     postDelay: 0
   - subWaves:
-    - enemyCount: 2
-      postDelay: 5
     - enemyCount: 3
+      postDelay: 5
+    - enemyCount: 5
       postDelay: 0
     postDelay: 10
   - subWaves:
-    - enemyCount: 2
+    - enemyCount: 3
       postDelay: 5
-    - enemyCount: 4
-      postDelay: 10
     - enemyCount: 6
+      postDelay: 10
+    - enemyCount: 8
       postDelay: 0
     postDelay: 10
   - subWaves:
-    - enemyCount: 4
+    - enemyCount: 6
       postDelay: 5
-    - enemyCount: 7
+    - enemyCount: 9
       postDelay: 10
     - enemyCount: 10
+      postDelay: 12
+    - enemyCount: 12
       postDelay: 0
     postDelay: 10
   - subWaves:
-    - enemyCount: 2
+    - enemyCount: 3
       postDelay: 5
-    - enemyCount: 4
+    - enemyCount: 5
       postDelay: 10
-    - enemyCount: 6
+    - enemyCount: 7
       postDelay: 12
-    - enemyCount: 8
+    - enemyCount: 10
       postDelay: 0
     postDelay: 0
 --- !u!114 &1641639101
