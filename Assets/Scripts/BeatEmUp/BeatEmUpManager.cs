@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using LD41.Events;
 using UnityEngine;
 using Xenon;
 
 namespace LD41.BeatEmUp {
-	public class BeatEmUpManager : Singleton<BeatEmUpManager> {
+	public class BeatEmUpManager : Singleton<BeatEmUpManager>, IEventListener {
 
 		public MapBounds mapBounds;
 		public Camera cam;
@@ -11,6 +12,7 @@ namespace LD41.BeatEmUp {
 		public Transform enemiesRoot;
 
 		public PlayerCharacter playerChar;
+		public Transform playerSpawn;
 
 		public List<Terminal> terminals = new List<Terminal>();
 
@@ -33,6 +35,10 @@ namespace LD41.BeatEmUp {
 				}
 			}
 			return closestTerminal;
+		}
+
+		public void OnPlayerCharacterDeath(IEventSender sender, PlayerCharacterDeathEvent ev) {
+			playerChar.transform.position = playerSpawn.position;
 		}
 
 	}
