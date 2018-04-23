@@ -21,6 +21,11 @@ namespace LD41.BeatEmUp {
 				cam.orthographicSize = (cam.pixelHeight / (float) cam.pixelWidth) * mapBounds.bounds.size.x / 2f;
 				mapBounds.bounds.size = new Vector3(mapBounds.bounds.size.x, cam.orthographicSize * 2f, 0f);
 			}
+			this.RegisterListener();
+		}
+
+		private void OnDestroy() {
+			this.UnregisterListener();
 		}
 
 		public Terminal GetClosestEnabledTerminal(Vector3 pos) {
@@ -39,6 +44,7 @@ namespace LD41.BeatEmUp {
 
 		public void OnPlayerCharacterDeath(IEventSender sender, PlayerCharacterDeathEvent ev) {
 			playerChar.transform.position = playerSpawn.position;
+			playerChar.health = 10f;
 		}
 
 	}
