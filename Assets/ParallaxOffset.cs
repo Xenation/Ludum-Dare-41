@@ -11,6 +11,7 @@ public class ParallaxOffset : MonoBehaviour {
 	}
 	
 	void Update () {
+
 		if(mapTag == "Map_Beat") {
 			transform.position = new Vector3(map.position.y*parallaxOffset, 0, transform.position.z);
 		} else {
