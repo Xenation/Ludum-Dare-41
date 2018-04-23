@@ -10,6 +10,6 @@ public class ParallaxOffset : MonoBehaviour {
 	}
 	
 	void Update () {
-		transform.position = map.position*parallaxOffset;
+		transform.position = new Vector3(transform.position.x, map.position.y*parallaxOffset, transform.position.z);
 	}
 }
