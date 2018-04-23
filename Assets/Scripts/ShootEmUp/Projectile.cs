@@ -6,7 +6,7 @@ namespace LD41.ShootEmUp {
 		
 		public float damage;
 		public GameObject Template { get; private set; }
-		
+
 		protected SpriteRenderer spriteRenderer;
 
 		protected new void Awake() {

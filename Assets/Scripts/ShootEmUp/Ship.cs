@@ -8,12 +8,40 @@ namespace LD41.ShootEmUp {
 
 		public float health = 1f;
 		public int scoreGain = 0;
+		public float hitBlink = .4f;
+		public bool isBlinking = false;
+		[ColorUsage(true, true, 0f, 8f, 0.125f, 3f)]
+		public Color blinkingColor = Color.white;
 
 		protected List<Weapon> weapons = new List<Weapon>();
+		protected SpriteRenderer sprRenderer;
+		protected float lastHitTime;
 
 		protected new void Awake() {
 			base.Awake();
 			GetComponentsInChildren(weapons);
+			sprRenderer = GetComponent<SpriteRenderer>();
+		}
+
+		protected void Update() {
+			if (isBlinking) {
+				SetTint(Color.Lerp(Color.white, blinkingColor, GetBlinkValue()));
+			}
+		}
+
+		protected virtual float GetBlinkValue() {
+			float blinkValue = (Time.time - lastHitTime) % (hitBlink * 2f) * 2f;
+			if (blinkValue > 1f) {
+				blinkValue = 1f - (blinkValue - 1f);
+			}
+			return blinkValue;
+		}
+		
+		protected void SetTint(Color color) {
+			MaterialPropertyBlock props = new MaterialPropertyBlock();
+			sprRenderer.GetPropertyBlock(props);
+			props.SetColor("_Tint", color);
+			sprRenderer.SetPropertyBlock(props);
 		}
 		
 		public void FireAll() {
@@ -44,7 +72,8 @@ namespace LD41.ShootEmUp {
 			}
 		}
 
-		public void ReceiveDamage(float dmg) {
+		public virtual void ReceiveDamage(float dmg) {
+			lastHitTime = Time.time;
 			health -= dmg;
 			if (health <= 0) {
 				health = 0f;

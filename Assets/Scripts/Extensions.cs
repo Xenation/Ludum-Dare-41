@@ -7,6 +7,15 @@ namespace LD41 {
 			return (val - from1) / (to1 - from1) * (to2 - from2) + from2;
 		}
 
+		public static float Clamp(this float val, float min, float max) {
+			if (val > max) {
+				return max;
+			} else if (val < min) {
+				return min;
+			}
+			return val;
+		}
+
 		public static Vector2 ClampMagnitude(this Vector2 vec, float minMag, float maxMag) {
 			float mag = vec.magnitude;
 			if (mag > maxMag) {
