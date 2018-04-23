@@ -5,7 +5,7 @@ using UnityEngine;
 public class ParallaxMenu : MonoBehaviour {
 
 	public float moveSpeed = 0.01f;
-	void Update() {
-		transform.position = new Vector3(transform.position.x, transform.position.y+moveSpeed*Time.deltaTime, transform.position.z);
+	void FixedUpdate() {
+		transform.position = new Vector3(transform.position.x, transform.position.y+moveSpeed*Time.fixedDeltaTime, transform.position.z);
 	}
 }
