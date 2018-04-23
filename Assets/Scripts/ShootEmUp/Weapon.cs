@@ -4,6 +4,9 @@ using UnityEngine;
 namespace LD41.ShootEmUp {
 	public class Weapon : MonoBehaviour {
 
+		[System.NonSerialized]
+		public Ship ship;
+
 		protected List<ProjectileLauncher> launchers = new List<ProjectileLauncher>();
 
 		protected float globalHeading = 0f;
@@ -11,6 +14,9 @@ namespace LD41.ShootEmUp {
 
 		protected void Awake() {
 			GetComponentsInChildren(launchers);
+			foreach (ProjectileLauncher launcher in launchers) {
+				launcher.weapon = this;
+			}
 			globalHeading = transform.rotation.eulerAngles.z;
 		}
 

@@ -25,7 +25,7 @@ namespace LD41 {
 		}
 
 		private void OnDestroy() {
-			EventManager.I.UnregisterListener(this);
+			this.UnregisterListener();
 		}
 
 		private void UpdateScore() {

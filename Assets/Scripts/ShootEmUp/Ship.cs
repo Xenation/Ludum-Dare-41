@@ -26,6 +26,9 @@ namespace LD41.ShootEmUp {
 		protected new void Awake() {
 			base.Awake();
 			GetComponentsInChildren(weapons);
+			foreach (Weapon weapon in weapons) {
+				weapon.ship = this;
+			}
 			sprRenderer = GetComponent<SpriteRenderer>();
 		}
 
