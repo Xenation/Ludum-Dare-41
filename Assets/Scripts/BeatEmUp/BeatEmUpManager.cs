@@ -7,6 +7,8 @@ namespace LD41.BeatEmUp {
 		public MapBounds mapBounds;
 		public Camera cam;
 
+		public Transform enemiesRoot;
+
 		public PlayerCharacter playerChar;
 
 		private void Awake() {

@@ -4,8 +4,11 @@ namespace LD41.BeatEmUp {
 	[RequireComponent(typeof(Rigidbody2D))]
 	public class Character : MonoBehaviour {
 
-		public delegate void OnDamageReceived(Character ch);
+		public delegate void OnDamageReceived(Character dmgDealer);
 		public event OnDamageReceived OnDamageReceivedEvent;
+
+		public delegate void OnDeath(Character died);
+		public event OnDeath OnDeathEvent;
 
 		public float speed = 4f;
 		public float health = 5f;
@@ -66,6 +69,9 @@ namespace LD41.BeatEmUp {
 		}
 
 		public void Die() {
+			if (OnDeathEvent != null) {
+				OnDeathEvent.Invoke(this);
+			}
 			Destroy(gameObject);
 		}
 
