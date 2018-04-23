@@ -7,6 +7,10 @@ namespace LD41.BeatEmUp {
 		public MapBounds mapBounds;
 		public Camera cam;
 
+		public Transform enemiesRoot;
+
+		public PlayerCharacter playerChar;
+
 		private void Awake() {
 			if (cam != null) {
 				cam.orthographicSize = (cam.pixelHeight / (float) cam.pixelWidth) * mapBounds.bounds.size.x / 2f;
