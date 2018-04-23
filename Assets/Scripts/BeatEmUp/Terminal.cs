@@ -13,7 +13,7 @@ namespace LD41.BeatEmUp {
 		public void Awake() {
 			anim = GetComponent<Animator>();
 			BeatEmUpManager.I.terminals.Add(this);
-			transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 10f);
+			transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
 		}
 
 		public void DisableTerminal() {

@@ -12,7 +12,7 @@ namespace LD41.BeatEmUp {
 
 		protected new void Awake() {
 			base.Awake();
-			anim = GetComponent<Animator>();
+			anim = GetComponentInChildren<Animator>();
 		}
 
 		protected void Update() {

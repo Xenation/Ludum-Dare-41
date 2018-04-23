@@ -51,7 +51,7 @@ namespace LD41.BeatEmUp {
 					}
 				}
 				rb.velocity = velocity;
-				transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 10f);
+				transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
 			}
 		}
 
