@@ -75,6 +75,7 @@ namespace LD41.ShootEmUp {
 			} else if (gameObject.layer == LayerUtils.Enemy) {
 				if (collision.gameObject.layer == LayerUtils.PlayerProjectile) {
 					Projectile projectile = collision.gameObject.GetComponent<Projectile>();
+					Instantiate(Resources.Load("Prefabs/Explosion"), collision.contacts[0].point, Quaternion.identity);
 					ReceiveDamage(projectile.damage);
 					projectile.Kill();
 				}
