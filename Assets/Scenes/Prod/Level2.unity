@@ -4561,7 +4561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d71620e8e02ac4d819401ed9fcc877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStayTime: 0
+  maxStayTime: 1
   minDistance: 3
   slowDistance: 4
 --- !u!4 &1213442879 stripped
@@ -4754,6 +4754,11 @@ Prefab:
         type: 2}
       propertyPath: shootType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114613582603500382, guid: 56f03d0933cf4334d9a23e47569484f8,
+        type: 2}
+      propertyPath: maxStayTime
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 56f03d0933cf4334d9a23e47569484f8, type: 2}
@@ -5989,7 +5994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8d71620e8e02ac4d819401ed9fcc877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxStayTime: 0
+  maxStayTime: 1
   minDistance: 3
   slowDistance: 4
 --- !u!1001 &1630156852
