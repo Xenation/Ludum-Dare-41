@@ -2504,11 +2504,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4694245907801042, guid: c545e3cc4e7493b4faacd44cad66eb86, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.07
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4694245907801042, guid: c545e3cc4e7493b4faacd44cad66eb86, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4694245907801042, guid: c545e3cc4e7493b4faacd44cad66eb86, type: 2}
       propertyPath: m_LocalPosition.z
@@ -3635,6 +3635,7 @@ MonoBehaviour:
   cam: {fileID: 1115050656}
   enemiesRoot: {fileID: 84947290}
   playerChar: {fileID: 1086374696}
+  terminals: []
 --- !u!4 &1530052743 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4398161196700568, guid: 85e87c8ed0c236b44928bb3097a630a4,
