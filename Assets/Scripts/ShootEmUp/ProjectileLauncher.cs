@@ -13,6 +13,7 @@ namespace LD41.ShootEmUp {
 				return 1f / fireRate;
 			}
 		}
+		public bool canShoot = true;
 
 		[System.NonSerialized]
 		public Weapon weapon;
@@ -20,6 +21,7 @@ namespace LD41.ShootEmUp {
 		protected float lastShootTime;
 
 		public void Launch() {
+			if (!canShoot) return;
 			if (Time.time > lastShootTime + shootDelay) {
 				lastShootTime = Time.time;
 				this.Send(new LauncherFiringEvent(this));

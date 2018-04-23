@@ -53,5 +53,15 @@ namespace LD41 {
 			}
 		}
 
+		private static int terminalLayer;
+		public static int Terminal {
+			get {
+				if (terminalLayer == 0) {
+					terminalLayer = LayerMask.NameToLayer("Terminal");
+				}
+				return terminalLayer;
+			}
+		}
+
 	}
 }

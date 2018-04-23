@@ -23,7 +23,7 @@ TagManager:
   - EnemyTrigger
   - 
   - Decor
-  - 
+  - Terminal
   - 
   - 
   - 
@@ -42,6 +42,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 1801899185
+    locked: 0
+  - name: Decor
+    uniqueID: 4041146135
     locked: 0
   - name: Default
     uniqueID: 0
