@@ -22,6 +22,8 @@ namespace LD41 {
 		private void Awake() {
 			this.RegisterListener();
 			UpdateScore();
+			UpdateShipHealth(ShootEmUpManager.I.playerShip);
+			UpdateCharacterHealth(BeatEmUpManager.I.playerChar);
 		}
 
 		private void OnDestroy() {
@@ -33,11 +35,11 @@ namespace LD41 {
 		}
 
 		private void UpdateShipHealth(Ship ship) {
-			shipLifeBar.fillAmount = ship.health / 10;
+			shipLifeBar.material.SetFloat("_FillAmount", ship.health / 10f);
 		}
 
 		private void UpdateCharacterHealth(Character character) {
-			characterLifeBar.fillAmount = character.health / 10;
+			characterLifeBar.material.SetFloat("_FillAmount", character.health / 10f);
 		}
 
 		private void DisplayGameOverPanel() {
