@@ -28,7 +28,9 @@ namespace LD41.ShootEmUp {
 			triggersManager.Initialize(mapBounds.bounds);
 			mapTransform.localScale = new Vector3(mapBounds.bounds.size.x, mapBounds.bounds.size.x);
 			this.RegisterListener();
-			totalDistance = finalShip.transform.position.y;
+			if (finalShip != null) {
+				totalDistance = finalShip.transform.position.y;
+			}
 		}
 
 		private void OnDestroy() {
@@ -55,7 +57,9 @@ namespace LD41.ShootEmUp {
 
 		private void FixedUpdate() {
 			mapTransform.position += Vector3.down * mapSpeed * Time.fixedDeltaTime;
-			portionReached = 1f - (finalShip.transform.position.y) / totalDistance;
+			if (finalShip != null) {
+				portionReached = 1f - (finalShip.transform.position.y) / totalDistance;
+			}
 		}
 
 		private void OnDrawGizmos() {
