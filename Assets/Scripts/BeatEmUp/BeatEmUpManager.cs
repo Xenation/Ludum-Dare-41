@@ -43,7 +43,12 @@ namespace LD41.BeatEmUp {
 		}
 
 		public void OnPlayerCharacterDeath(IEventSender sender, PlayerCharacterDeathEvent ev) {
-			playerChar.transform.position = playerSpawn.position;
+			playerSpawn.transform.parent.GetComponent<Animator>().SetTrigger("Respawn");
+			playerChar.transform.SetParent(playerSpawn);
+			playerChar.transform.localPosition = Vector3.zero;
+			playerChar.GetComponent<PlayerCharacter>().enabled = false;
+			playerChar.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+			playerChar.GetComponent<BoxCollider2D>().enabled = false;
 			playerChar.health = 10f;
 		}
 
