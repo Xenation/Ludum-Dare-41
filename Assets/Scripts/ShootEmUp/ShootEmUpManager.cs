@@ -1,8 +1,9 @@
-﻿using UnityEngine;
+﻿using LD41.Events;
+using UnityEngine;
 using Xenon;
 
 namespace LD41.ShootEmUp {
-	public class ShootEmUpManager : Singleton<ShootEmUpManager> {
+	public class ShootEmUpManager : Singleton<ShootEmUpManager>, IEventListener, IEventSender {
 
 		public MapBounds mapBounds;
 		public Camera cam;
@@ -13,6 +14,11 @@ namespace LD41.ShootEmUp {
 		public Transform enemiesRoot;
 
 		public ShipController playerShip;
+		public EnemyShip finalShip;
+
+		protected float totalDistance;
+		[System.NonSerialized]
+		public float portionReached;
 
 		private void Awake() {
 			if (cam != null) {
@@ -21,6 +27,12 @@ namespace LD41.ShootEmUp {
 			}
 			triggersManager.Initialize(mapBounds.bounds);
 			mapTransform.localScale = new Vector3(mapBounds.bounds.size.x, mapBounds.bounds.size.x);
+			this.RegisterListener();
+			totalDistance = finalShip.transform.position.y;
+		}
+
+		private void OnDestroy() {
+			this.UnregisterListener();
 		}
 
 		private void Update() {
@@ -43,6 +55,7 @@ namespace LD41.ShootEmUp {
 
 		private void FixedUpdate() {
 			mapTransform.position += Vector3.down * mapSpeed * Time.fixedDeltaTime;
+			portionReached = 1f - (finalShip.transform.position.y) / totalDistance;
 		}
 
 		private void OnDrawGizmos() {
@@ -81,6 +94,12 @@ namespace LD41.ShootEmUp {
 
 		private void OnPlayerDeath(Ship player) {
 
+		}
+
+		public void OnEnemyShipDeath(IEventSender sender, EnemyShipDeathEvent ev) {
+			if (ev.ship == finalShip) {
+				this.Send(new GameWonEvent());
+			}
 		}
 
 	}

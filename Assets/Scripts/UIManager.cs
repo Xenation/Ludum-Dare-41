@@ -10,6 +10,7 @@ namespace LD41 {
 
 		public Image shipLifeBar;
 		public Image characterLifeBar;
+		public Image progressBar;
 
 		[SerializeField]
 		private Text scoreTxt;
@@ -26,6 +27,10 @@ namespace LD41 {
 			UpdateCharacterHealth(BeatEmUpManager.I.playerChar);
 		}
 
+		private void Update() {
+			UpdateProgressBar();
+		}
+
 		private void OnDestroy() {
 			this.UnregisterListener();
 		}
@@ -40,6 +45,10 @@ namespace LD41 {
 
 		private void UpdateCharacterHealth(Character character) {
 			characterLifeBar.material.SetFloat("_FillAmount", character.health / 10f);
+		}
+
+		private void UpdateProgressBar() {
+			progressBar.fillAmount = ShootEmUpManager.I.portionReached;
 		}
 
 		private void DisplayGameOverPanel() {
