@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using LD41.Events;
 using UnityEngine;
+using Xenon;
 
-public class SoundManager : MonoBehaviour {
+public class SoundManager : MonoBehaviour, IEventListener {
 
 	public AudioSource sfxSource;
 	public AudioSource musicSource;
@@ -28,6 +30,11 @@ public class SoundManager : MonoBehaviour {
 		}
 
 		DontDestroyOnLoad(gameObject);
+		this.RegisterListener();
+	}
+
+	private void OnDestroy() {
+		this.UnregisterListener();
 	}
 
 	public void PlaySingle(AudioClip clip) {
@@ -35,7 +42,7 @@ public class SoundManager : MonoBehaviour {
 		sfxSource.Play();
 	}
 
-	public void RandomizeClips(AudioClip clip, AudioSource aSource, bool isPlayedOneTime = false, bool isPitched = false) {
+	public void RandomizeClips(AudioClip clip, AudioSource aSource, float volume, bool isPlayedOneTime = false, bool isPitched = false) {
 
 		if (isPitched) {
 			float randomPitch = Random.Range(lowPitchRange, highPitchRange);
@@ -45,7 +52,7 @@ public class SoundManager : MonoBehaviour {
 		aSource.clip = clip;
 
 		if (isPlayedOneTime) {
-			aSource.PlayOneShot(clip);
+			aSource.PlayOneShot(clip, volume);
 		} else {
 			aSource.Play();
 		}
@@ -53,15 +60,32 @@ public class SoundManager : MonoBehaviour {
 	}
 	
 	public void PlayExplosionSoundEffect() {
-		RandomizeClips(explosionEffect, sfxSource, true);
+		Debug.Log("exp");
+		RandomizeClips(explosionEffect, sfxSource, 2f, true);
 	}
 
-	public void PlaylaserShootSoundEffect() {
-		RandomizeClips(laserShootEffect, sfxSource, true);
+	public void PlayLaserShootSoundEffect() {
+		RandomizeClips(laserShootEffect, sfxSource, .1f, true);
 	}
 
 	public void PlayHitSoundEffect() {
-		RandomizeClips(hitEffect, sfxSource, true);
+		RandomizeClips(hitEffect, sfxSource, 1f, true);
+	}
+
+	public void OnLauncherFiring(IEventSender sender, LauncherFiringEvent ev) {
+		PlayLaserShootSoundEffect();
+	}
+
+	public void OnPlayerShipDamaged(IEventSender sender, PlayerShipDamagedEvent ev) {
+		PlayHitSoundEffect();
+	}
+
+	public void OnEnemyShipDamaged(IEventSender sender, EnemyShipDamagedEvent ev) {
+		PlayHitSoundEffect();
+	}
+
+	public void OnEnemyShipDeath(IEventSender sender, EnemyShipDeathEvent ev) {
+		PlayExplosionSoundEffect();
 	}
 
 }

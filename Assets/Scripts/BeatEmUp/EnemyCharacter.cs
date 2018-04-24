@@ -47,15 +47,18 @@ namespace LD41.BeatEmUp {
 				if (isTargetingPlayer) {
 					switch (state) {
 						case State.Nominal:
+							anim.SetBool("IsAttack", false);
 							target = playerChar.transform;
 							state = State.ReachingTarget;
 							break;
 						case State.ReachingTarget:
+							anim.SetBool("IsAttack", false);
 							if (toTarget.magnitude < hitRange) {
 								state = State.Hitting;
 							}
 							break;
 						case State.Hitting:
+							anim.SetBool("IsAttack", true);
 							melee.Hit();
 							if (toTarget.magnitude > hitRange) {
 								state = State.ReachingTarget;

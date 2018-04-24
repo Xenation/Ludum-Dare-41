@@ -19,11 +19,5 @@ namespace LD41 {
 			this.Send(new ScoreChangedEvent(score));
 		}
 
-		public void OnEnemyShipDamaged(IEventSender sender, EnemyShipDamagedEvent ev) {
-			if (ev.ship.CompareTag("LastShip")) {
-				this.Send(new GameWonEvent());
-			}
-		}
-
 	}
 }
