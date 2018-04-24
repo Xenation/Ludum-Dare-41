@@ -127,7 +127,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1686786302907794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -93.6, y: 0.93537015, z: 0}
+  m_LocalPosition: {x: -98.08816, y: 12.602139, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 1}
   m_Children:
   - {fileID: 4359792553100108}
@@ -261,11 +261,22 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1026838664663526}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2fb4bb36062c48244b2710e9b993c8f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sprite:
+  - {fileID: 21300002, guid: ea6c1f5c837b3a0428ba36023eb677c9, type: 3}
+  - {fileID: 21300004, guid: ea6c1f5c837b3a0428ba36023eb677c9, type: 3}
+  - {fileID: 21300006, guid: ea6c1f5c837b3a0428ba36023eb677c9, type: 3}
+  - {fileID: 21300008, guid: ea6c1f5c837b3a0428ba36023eb677c9, type: 3}
+  - {fileID: 21300010, guid: ea6c1f5c837b3a0428ba36023eb677c9, type: 3}
+  - {fileID: 21300012, guid: ea6c1f5c837b3a0428ba36023eb677c9, type: 3}
+  - {fileID: 21300014, guid: ea6c1f5c837b3a0428ba36023eb677c9, type: 3}
+  - {fileID: 21300016, guid: ea6c1f5c837b3a0428ba36023eb677c9, type: 3}
+  - {fileID: 21300018, guid: ea6c1f5c837b3a0428ba36023eb677c9, type: 3}
+  percentHat: 0.2
 --- !u!212 &212269872786245322
 SpriteRenderer:
   m_ObjectHideFlags: 1
