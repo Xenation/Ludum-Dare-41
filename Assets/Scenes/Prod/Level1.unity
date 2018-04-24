@@ -5177,6 +5177,26 @@ Prefab:
       propertyPath: m_Size.y
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 114536277447858836, guid: 2f27731a4c20f9e4bace98ba8538344f,
+        type: 2}
+      propertyPath: mapTag
+      value: Map_Beat
+      objectReference: {fileID: 0}
+    - target: {fileID: 114599881319004622, guid: 2f27731a4c20f9e4bace98ba8538344f,
+        type: 2}
+      propertyPath: mapTag
+      value: Map_Beat
+      objectReference: {fileID: 0}
+    - target: {fileID: 114929663102125526, guid: 2f27731a4c20f9e4bace98ba8538344f,
+        type: 2}
+      propertyPath: mapTag
+      value: Map_Beat
+      objectReference: {fileID: 0}
+    - target: {fileID: 114026348518892906, guid: 2f27731a4c20f9e4bace98ba8538344f,
+        type: 2}
+      propertyPath: mapTag
+      value: Map_Beat
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2f27731a4c20f9e4bace98ba8538344f, type: 2}
   m_IsPrefabParent: 0
@@ -5219,26 +5239,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1089290698309236, guid: 6ea2b508ba74ca44b979b9d218e224cf, type: 2}
-      propertyPath: m_Name
-      value: Terminal Left
-      objectReference: {fileID: 0}
     - target: {fileID: 114553547508497610, guid: 6ea2b508ba74ca44b979b9d218e224cf,
         type: 2}
       propertyPath: linkedLauncher
       value: 
       objectReference: {fileID: 2125919668}
     - target: {fileID: 1089290698309236, guid: 6ea2b508ba74ca44b979b9d218e224cf, type: 2}
-      propertyPath: m_Layer
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_SortingLayer
-      value: 0
+      propertyPath: m_Name
+      value: Terminal Left
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ea2b508ba74ca44b979b9d218e224cf, type: 2}

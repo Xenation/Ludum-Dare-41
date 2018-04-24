@@ -11,7 +11,7 @@ namespace LD41.BeatEmUp {
 		public bool isEnabled = true;
 
 		public void Awake() {
-			anim = GetComponent<Animator>();
+			anim = GetComponentInChildren<Animator>();
 			BeatEmUpManager.I.terminals.Add(this);
 			transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y);
 		}
